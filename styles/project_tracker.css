@@ -87,11 +87,14 @@ header {
 	
 	.project-expand-button {
 		display: inline-block;
+		width: 1lh;
+		height: 1lh;
 		margin: 0;
 		padding: 0;
 		border: 0 none;
 		background-color: transparent;
 		color: inherit;
+		fill: currentColor;
 		cursor: pointer;
 		transition: transform var(--ui-transition-duration);
 	}

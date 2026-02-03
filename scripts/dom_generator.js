@@ -114,7 +114,10 @@ function generateProjectHTML(project) {
 			<h3>${project.title}${project.section ? ` &ndash; ${project.section}` : ''}</h3>
 			<div class="project-actions">
 				${project.website && project.website !== 'N/A' ? `<a href="${project.website}" target="_blank">🔗</a>`: ''}
-				<div class="project-expand-button" aria-hidden="true" tabindex="-1">⮟</div>
+				<!--⮟-->
+				<svg class="project-expand-button" aria-hidden="true" tabindex="-1" viewBox="0 0 16 16">
+					<polyline points="2,3 8,6 14,3 8,13" />
+				</svg>
 			</div>
 			<div class="progress-wrapper">
 				${iconURL ?
