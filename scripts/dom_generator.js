@@ -100,7 +100,7 @@ function filterLocation(project, location) {
  */
 function generateProjectHTML(project) {
 	let iconURL;
-	if (STATUS_NUMBER_MAP[project.status] >= 0 && STATUS_NUMBER_MAP[project.status] <= 1) {
+	if (STATUS_NUMBER_MAP[project.status] === 1) {
 		iconURL = 'blueprint_pencil.svg';
 	} else if (STATUS_NUMBER_MAP[project.status] >= 2 && STATUS_NUMBER_MAP[project.status] <= 4) {
 		iconURL = 'pencil.svg';
