@@ -1,3 +1,4 @@
+/** For animating icons' translation separate from their other transformations */
 @property --icon-translate-x {
 	syntax: '<length-percentage>';
 	initial-value: 0px;
@@ -97,6 +98,10 @@ header {
 		fill: currentColor;
 		cursor: pointer;
 		transition: transform var(--ui-transition-duration);
+		
+		@media (prefers-reduced-motion: reduce) {
+			transition-duration: 0s;
+		}
 	}
 	&:open .project-expand-button {
 		transform: rotateZ(180deg);
