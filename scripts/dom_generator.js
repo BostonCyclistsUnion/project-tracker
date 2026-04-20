@@ -155,7 +155,25 @@ function generateProjectHTML(project) {
 			<dt>Est. Completion</dt>
 			<dd>${project.completionDate}</dd>
 			<dt>Point(s) Of Contact</dt>
-			<dd>${project.contacts}</dd>
+			<dd>${generateContactsHTML(project.contacts)}</dd>
 		</dl>
 	</details>`;
+}
+
+/**
+ * Escape angle brackets and make email addresses clickable in point(s) of contact.
+ * @param {String} contactsStr
+ * @returns {String}
+ */
+function generateContactsHTML(contactsStr) {
+	return contactsStr
+		.replace(
+			// Match email addresses in angle brackets.
+			/<([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)>/g,
+			'&lt;<a href="mailto:$1" target="_blank">$1</a>&gt;'
+		).replace(
+			// Match hyphen-separated phone numbers in parentheses.
+			/\((\d{3}-\d{3}-\d{4})\)/g,
+			'(<a href="tel:$1" target="_blank">$1</a>)'
+		);
 }
