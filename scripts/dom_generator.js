@@ -134,6 +134,7 @@ function generateProjectHTML(project) {
 					${['Partially undone', 'Undone'].includes(project.status) ? 'class="bad"' : ''}
 					${['Under construction', 'Complete'].includes(project.status) ? 'class="good"' : ''}></progress>
 				<small class="project-status-text">
+					<span>${(project.announceDate || '').replace('Unannounced', '').replace('N/A', '').replace('?', '')}</span>
 					<span>${project.status}</span>
 					<span>${(project.completionDate || '').replace('Unannounced', '').replace('N/A', '').replace('?', '')}</span>
 				</small>
@@ -150,6 +151,10 @@ function generateProjectHTML(project) {
 			<dd>${project.designer}</dd>
 			<dt>Constructor</dt>
 			<dd>${project.constructor}</dd>
+			<dt>Project Announced</dt>
+			<dd>${project.announceDate}</dd>
+			<dt>Last Official Update</dt>
+			<dd>${project.lastUpdateDate}</dd>
 			<dt>Est. Construction Start</dt>
 			<dd>${project.constructionStartDate}</dd>
 			<dt>Est. Completion</dt>

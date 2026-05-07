@@ -189,6 +189,18 @@ header {
 		display: flex;
 		justify-content: space-between;
 		padding: calc(0.25 * var(--button-margin));
+
+		span {
+			width: 33%;
+			text-align: center;
+
+			&:first-child {
+				text-align: start;
+			}
+			&:last-child {
+				text-align: end;
+			}
+		}
 	}
 	
 	dl {
