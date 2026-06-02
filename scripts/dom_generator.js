@@ -87,9 +87,11 @@ function filterLocation(project, location) {
 		// Falsey location => show all.
 		return true;
 	}
-	const locationMatch = (location === project.cityOrNeighborhood ||
-		(location === 'Boston' &&
-			BOSTON_NEIGHBORHOODS.includes(project.cityOrNeighborhood)));
+	const projLocations = project.cityOrNeighborhood.split(/\s*,\s*/), // Split comma-separated list, removing whitespace around commas.
+		locationMatch = (projLocations.includes(location) ||
+			(location === 'Boston' &&
+				// If filtering for Boston, check for any neighborhood matches.
+				projLocations.filter((neighborhood) => BOSTON_NEIGHBORHOODS.includes(neighborhood)).length !== 0));
 	return locationMatch;
 }
 
